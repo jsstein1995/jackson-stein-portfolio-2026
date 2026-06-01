@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { headers } from "next/headers";
 import { Nav } from "@/components/nav";
 import { Footer, PageBottomNote } from "@/components/footer";
 import "./globals.css";
@@ -19,21 +20,28 @@ export const metadata: Metadata = {
   description: "Senior product designer crafting thoughtful digital experiences.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = (await headers()).get("x-pathname") ?? "";
+  const isPasswordPage = pathname.startsWith("/password");
+
   return (
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-background text-foreground">
-        <Nav />
+        {!isPasswordPage && <Nav />}
         <main>{children}</main>
-        <PageBottomNote />
-        <Footer />
+        {!isPasswordPage && (
+          <>
+            <PageBottomNote />
+            <Footer />
+          </>
+        )}
       </body>
     </html>
   );

@@ -13,15 +13,15 @@ export type SldImage = {
 
 export const sldProjectMedia = {
   heroVideo: {
-    src: assetPath("SLD-editor.mov"),
-    type: "video/quicktime" as const,
+    src: assetPath("SLD-editor-2.mp4"),
+    type: "video/mp4" as const,
     label: "Single-Line Diagram Editor in Aurora",
     width: 1280,
     height: 720,
   },
   templatesVideo: {
-    src: assetPath("templates-video-small.mov"),
-    type: "video/quicktime" as const,
+    src: assetPath("templates-video-small-2.mp4"),
+    type: "video/mp4" as const,
     label: "Templates — reusable electrical component configurations in the SLD editor",
   },
   iterativeRoadmap: {

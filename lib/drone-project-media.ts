@@ -14,8 +14,8 @@ export const droneProjectMedia = {
     height: 420,
   },
   heroVideo: {
-    src: assetPath("Drone-video.mov"),
-    type: "video/quicktime" as const,
+    src: assetPath("Drone-display-2.mp4"),
+    type: "video/mp4" as const,
     label: "Drone Mapping workflow overview",
   },
   timeline: {
@@ -105,8 +105,8 @@ export const droneProjectMedia = {
       height: 800,
     },
     uploadDroneImages: {
-      src: assetPath("upload-drone-images.mov"),
-      type: "video/quicktime" as const,
+      src: assetPath("upload-drone-images-2.mp4"),
+      type: "video/mp4" as const,
       label: "Upload drone images",
     },
     reviewModel: {
@@ -117,20 +117,20 @@ export const droneProjectMedia = {
       height: 800,
     },
     mapOutput: {
-      src: assetPath("new-map.mov"),
-      type: "video/quicktime" as const,
+      src: assetPath("new-map-2.mp4"),
+      type: "video/mp4" as const,
       label: "Auto scaled drone orthographic image",
     },
     lidarOutput: {
-      src: assetPath("new-lidar.mov"),
-      type: "video/quicktime" as const,
+      src: assetPath("new-lidar-2.mp4"),
+      type: "video/mp4" as const,
       label: "high resolution Drone LiDAR model",
     },
   },
   v2: {
     texturedMeshVideo: {
-      src: assetPath("Drone-video.mov"),
-      type: "video/quicktime" as const,
+      src: assetPath("Drone-display-2.mp4"),
+      type: "video/mp4" as const,
       label: "Video upload support with measurable textured mesh",
     },
     mergeDesign: {
