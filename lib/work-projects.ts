@@ -1,3 +1,5 @@
+import { fullCaseStudies, selectedWork } from "@/lib/home-projects";
+
 export type WorkProject = {
   id: string;
   href: string;
@@ -6,46 +8,53 @@ export type WorkProject = {
   meta: string;
 };
 
-export const completedWorkProjects: WorkProject[] = [
-  {
-    id: "drone-mapping",
-    href: "/work/drone-mapping",
-    title: "Drone Mapping",
+const projectDetails: Record<
+  string,
+  Pick<WorkProject, "subtitle" | "meta"> & { title?: string }
+> = {
+  "drone-mapping": {
     subtitle: "Turning raw drone imagery into usable solar design data",
     meta: "V0–V2",
   },
-  {
-    id: "sld-editor",
-    href: "/work/sld-editor",
-    title: "Single-Line Diagram Editor",
+  "sld-editor": {
     subtitle:
       "Building Aurora's next-generation electrical design platform for Europe",
     meta: "6 months",
   },
-  {
-    id: "atlas",
-    href: "/work/atlas",
-    title: "Train Fitness",
+  atlas: {
     subtitle: "AI-powered workout tracking on iPhone and Apple Watch",
     meta: "2020",
   },
-  {
-    id: "nerdwallet-retirement-calculator",
-    href: "/work/nerdwallet-retirement-calculator",
-    title: "NerdWallet Retirement Calculator",
+  "nerdwallet-retirement-calculator": {
     subtitle: "Helping people visualize their path to retirement",
     meta: "2–3 months",
   },
-  {
-    id: "financing-comparisons",
-    href: "/work/financing-comparisons",
-    title: "Financing Comparisons",
-    subtitle:
-      "Helping solar sales reps compare financing options with confidence",
-    meta: "Aurora Solar",
+  "sales-mode-redesign": {
+    subtitle: "Redesigning Aurora's sales workflow for solar reps",
+    meta: "2023",
   },
-];
+};
+
+function hrefToId(href: string) {
+  return href.replace(/^\/work\//, "");
+}
+
+/** Work projects that appear on the homepage (full + selected case studies). */
+export function getHomepageWorkProjects(): WorkProject[] {
+  return [...fullCaseStudies, ...selectedWork].map((home) => {
+    const id = hrefToId(home.href);
+    const details = projectDetails[id];
+
+    return {
+      id,
+      href: home.href,
+      title: details?.title ?? home.title,
+      subtitle: details?.subtitle ?? "",
+      meta: details?.meta ?? home.year ?? "",
+    };
+  });
+}
 
 export function getOtherWorkProjects(currentId: string) {
-  return completedWorkProjects.filter((project) => project.id !== currentId);
+  return getHomepageWorkProjects().filter((project) => project.id !== currentId);
 }
