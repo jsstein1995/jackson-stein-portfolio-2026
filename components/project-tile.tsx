@@ -108,17 +108,20 @@ export function ProjectSection({
   projects,
   columns = 3,
   size = "large",
+  paddingY = "py-24 md:py-32",
 }: {
   id?: string;
   title: string;
   projects: HomeProject[];
   columns?: 2 | 3;
   size?: "large" | "small";
+  /** Tailwind vertical padding classes (default: py-24 md:py-32). */
+  paddingY?: string;
 }) {
   return (
     <section
       id={id}
-      className={`px-6 py-24 md:px-10 md:py-32${id ? " scroll-mt-24" : ""}`}
+      className={`px-6 md:px-10 ${paddingY}${id ? " scroll-mt-24" : ""}`}
     >
       <div className="mx-auto max-w-7xl">
         <FadeIn>

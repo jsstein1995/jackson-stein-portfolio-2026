@@ -79,11 +79,12 @@ export function HomePage() {
           title="Full Case Studies"
           projects={fullCaseStudies}
           columns={3}
+          paddingY="pt-24 pb-[4.5rem] md:pt-32 md:pb-24"
         />
 
         <section
           ref={selectedWorkLeadRef}
-          className="relative min-h-[32vh] md:min-h-[36vh]"
+          className="relative min-h-[24vh] md:min-h-[27vh]"
         >
           <HomeScrollArrow
             containerRef={selectedWorkLeadRef}
@@ -98,6 +99,7 @@ export function HomePage() {
           projects={selectedWork}
           columns={2}
           size="small"
+          paddingY="pt-[4.5rem] pb-24 md:pt-24 md:pb-32"
         />
       </motion.div>
     </>

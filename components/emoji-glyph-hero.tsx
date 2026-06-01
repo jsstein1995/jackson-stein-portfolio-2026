@@ -4,11 +4,14 @@ import {
   useCallback,
   useEffect,
   useRef,
+  useSyncExternalStore,
   type PointerEvent,
 } from "react";
 
 export type EmojiGlyphHeroProps = {
   text?: string;
+  /** Shorter label rendered below the `md` breakpoint (default: "J S"). */
+  mobileText?: string;
   baseEmoji?: string;
   hoverEmoji?: string;
   dotSize?: number;
@@ -531,8 +534,31 @@ function isInsideMagneticBlob(
   return dist <= radius * warp;
 }
 
+const MOBILE_BREAKPOINT = "(max-width: 767px)";
+
+function useMediaQuery(query: string) {
+  const subscribe = useCallback(
+    (onStoreChange: () => void) => {
+      const media = window.matchMedia(query);
+      media.addEventListener("change", onStoreChange);
+      return () => media.removeEventListener("change", onStoreChange);
+    },
+    [query]
+  );
+
+  const getSnapshot = useCallback(
+    () => window.matchMedia(query).matches,
+    [query]
+  );
+
+  const getServerSnapshot = useCallback(() => false, []);
+
+  return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+}
+
 const DEFAULTS = {
   text: "JACKSON STEIN",
+  mobileText: "J S",
   baseEmoji: "👨🏻‍💻",
   hoverEmoji: "👨🏻‍🎨",
   dotSize: 3.91,
@@ -560,6 +586,7 @@ function createRainbowGradient(
 
 export function EmojiGlyphHero({
   text = DEFAULTS.text,
+  mobileText = DEFAULTS.mobileText,
   baseEmoji = DEFAULTS.baseEmoji,
   hoverEmoji = DEFAULTS.hoverEmoji,
   dotSize = DEFAULTS.dotSize,
@@ -570,6 +597,9 @@ export function EmojiGlyphHero({
   textScaleY = DEFAULTS.textScaleY,
   className = "",
 }: EmojiGlyphHeroProps) {
+  const isMobile = useMediaQuery(MOBILE_BREAKPOINT);
+  const displayText = isMobile ? mobileText : text;
+
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const sceneRef = useRef<SceneState | null>(null);
@@ -592,7 +622,7 @@ export function EmojiGlyphHero({
   });
 
   propsRef.current = {
-    text,
+    text: displayText,
     baseEmoji,
     hoverEmoji,
     dotSize,
@@ -787,7 +817,7 @@ export function EmojiGlyphHero({
     rebuildScene,
     startAnimationLoop,
     stopAnimationLoop,
-    text,
+    displayText,
     baseEmoji,
     hoverEmoji,
     dotSize,
