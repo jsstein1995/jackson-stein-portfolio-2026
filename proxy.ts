@@ -14,7 +14,7 @@ function isPublicPath(pathname: string) {
     return true;
   }
 
-  return /\.(?:ico|png|jpg|jpeg|gif|svg|webp|mov|glb|css|js|txt|xml|json)$/i.test(
+  return /\.(?:ico|png|jpg|jpeg|gif|svg|webp|mov|mp4|glb|css|js|txt|xml|json|pdf)$/i.test(
     pathname
   );
 }
