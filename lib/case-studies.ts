@@ -41,14 +41,14 @@ export const caseStudies: CaseStudy[] = [
       "A complete rethink of how teams navigate complex data — from information architecture to motion language.",
   },
   {
-    slug: "atlas",
-    title: "Atlas",
-    subtitle: "Spatial computing for everyday work",
-    year: "2024",
+    slug: "train-fitness",
+    title: "Train Fitness",
+    subtitle: "AI-powered workout tracking on iPhone and Apple Watch",
+    year: "2020",
     role: "Senior Product Designer",
-    tags: ["Spatial UI", "Prototyping", "Research"],
+    tags: ["0→1", "Startup", "AI/Mobile"],
     excerpt:
-      "Exploring how spatial interfaces can feel intuitive rather than novel — grounded in real workflows.",
+      "Train Fitness started as an ambitious idea: use AI to automatically track strength workouts with no manual logging.",
   },
   {
     slug: "prism",

@@ -42,7 +42,7 @@ export const fullCaseStudies: HomeProject[] = [
   {
     title: "Train Fitness",
     tags: ["0→1", "Startup", "AI/Mobile"],
-    href: "/work/atlas",
+    href: "/work/train-fitness",
     imageSrc: homeImageSrc("/assets/images/train-display-img.png"),
     imageAlt: "Train Fitness app on iPhone",
     year: "2020",
@@ -64,7 +64,7 @@ const allSelectedWork: HomeProject[] = [
     href: "/work/nerdwallet-retirement-calculator",
     imageSrc: homeImageSrc("/assets/images/retirement-calc.png"),
     imageAlt: "NerdWallet retirement calculator",
-    year: "2021",
+    year: "2023",
   },
   {
     title: "Financing Comparisons",

@@ -21,7 +21,7 @@ const projectDetails: Record<
       "Building Aurora's next-generation electrical design platform for Europe",
     meta: "6 months",
   },
-  atlas: {
+  "train-fitness": {
     subtitle: "AI-powered workout tracking on iPhone and Apple Watch",
     meta: "2020",
   },

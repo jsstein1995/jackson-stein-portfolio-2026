@@ -161,7 +161,7 @@ export function NerdwalletRetirementCalculatorHero() {
 
         <FadeIn delay={0.09}>
           <p className="mt-4 text-xs tracking-wide text-muted md:text-sm">
-            2021 · NerdWallet
+            2023 · NerdWallet
           </p>
         </FadeIn>
 

@@ -6,14 +6,14 @@ import { TrainFitnessProjectOverview } from "@/components/train-fitness-project-
 import { TrainFitnessContent } from "@/components/train-fitness-content";
 import { heroWatchImage } from "@/lib/train-images";
 
-const study = getCaseStudy("atlas")!;
+const study = getCaseStudy("train-fitness")!;
 
 export const metadata = {
   title: `${study.title} — Your Name`,
   description: study.excerpt,
 };
 
-export default function AtlasPage() {
+export default function TrainFitnessPage() {
   return (
     <PageTransition>
       <TrainFitnessHero
@@ -32,7 +32,7 @@ export default function AtlasPage() {
 
       <TrainFitnessContent />
 
-      <MoreWorkSection currentId="atlas" />
+      <MoreWorkSection currentId="train-fitness" />
     </PageTransition>
   );
 }
