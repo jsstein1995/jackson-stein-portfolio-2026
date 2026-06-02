@@ -27,10 +27,10 @@ export default function AboutPage() {
         <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-20">
           <FadeIn>
             <Image
-              src={homeImageSrc("/assets/images/Selfie.jpeg")}
+              src={homeImageSrc("/assets/images/selfie2.png")}
               alt="Portrait photo"
-              width={3620}
-              height={2400}
+              width={1478}
+              height={1396}
               className="h-auto w-full"
               sizes="(max-width: 1024px) 100vw, 45vw"
               priority
