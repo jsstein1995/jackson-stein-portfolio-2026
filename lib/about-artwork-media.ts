@@ -15,6 +15,13 @@ export type AboutArtworkImage = {
 
 export const aboutArtworkImages: AboutArtworkImage[] = [
   {
+    id: "dunia",
+    src: assetPath("dunia.png"),
+    alt: "Charcoal portrait of Dunia",
+    width: 829,
+    height: 1024,
+  },
+  {
     id: "final",
     src: assetPath("Final.jpeg"),
     alt: "Charcoal figure study",
